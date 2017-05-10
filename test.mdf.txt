@@ -1,0 +1,22 @@
+Hide   Copy Code
+declare @json_string nvarchar(max)='[
+        {"Name": "John Jr"   ,
+         "Family":[
+            {"relationship": "grandfather","Name": "Johnhael"},
+            {"relationship": "brother","Name": "Michael"},
+            {"relationship": "father" ,"Name": "John"},
+            {"relationship": "mother" ,"Name": "Marge"},
+            {"relationship": "sister","Name": "Jane"}
+            ]
+        },
+        {"Name": "June"   ,
+         "Family":[
+            {"relationship": "brother","Name": "George"},
+            {"relationship": "father" ,"Name": "Derek"},
+            {"relationship": "mother" ,"Name": "Lucy"}
+            ]
+        }
+]'
+
+declare @json_data pJsonData
+insert into @json_data select * from json_Parse(@json_string)
